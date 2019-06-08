@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title>Hello World!</title>
+    <link rel = "stylesheet"
+          href = "./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="landingContainer" class = "container">
+            <h1>Accounted4 Accounting application</h1>
+
+            <button id="customerBtn" class="btn btn-danger"> Customer page </button>
+            <button id = "inventoryBtn" class ="btn btn-success">Inventory page</button>
+        </div>
+
+        <div id ="inventoryContainer" class="container startHidden">
+            <h1>Inventory page</h1>
+            <button id ="inventoryBackBtn" class ="btn btn-success">Home</button>
+        </div>
+
+
+        <div id="customerContainer" class ="container-fluid startHidden">
+
+            <div id ="customerBackContainer" class="container-fluid">
+                <div class="col-12">
+                    <br>
+                </div>
+
+                <div class="col-1">
+                    <button id ="customerBackBtn" class ="btn btn-secondary">Home</button>
+                </div>
+
+                <div class="col-11">
+                </div>
+            </div>
+
+            <div id="customerBodycontainer" class="container-fluid">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Customers</h1>
+                </div>
+            </div>
+
+            <div id="customerActionBtnContainer" class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                    </div>
+
+                    <div class="col-2 text-center">
+                        <button id ="customerSearchBtn" class ="btn btn-block btn-info">Search</button>
+                    </div>
+
+                    <div class="col-2 text-center">
+                        <button id ="customerAddbutton" class ="btn btn-block btn-info">Add</button>
+                    </div>
+
+                    <div class="col">
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="customerActionSearchContainer" class="container startHidden">
+
+                <div class="row mt-5">
+                </div>
+
+                <div class="row mt-5">
+                </div>
+
+                <div class="row">
+
+                    <div class="col-1">
+                    </div>
+
+                    <div class="col-2 text-right">
+                        <label>Search by:</label>
+                    </div>
+
+                    <div class="col-2">
+                        <select class="form-control">
+                            <option> First name </option>
+                            <option> Last name </option>
+                            <option> Phone number </option>
+                            <option> Address </option>
+                        </select>
+                    </div>
+
+                    <div class="col-3">
+                        <input type="text"  class="form-control">
+                    </div>
+
+                    <div class="col-2">
+                        <button id ="customerSearchActionBtn" class ="btn btn-success"> Go! </button>
+                    </div>
+
+                    <div clas="col">
+                    </div>
+
+                    <div class="col-1">
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div id="customerActionAddContainer" class="container startHidden ">
+                <div class="row">
+                    <div class="col">
+                        Add
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+
+
+
+
+
+
+        <script src = "src/landingPage.js" ></script>
+        <script src = "src/customerPage.js" ></script>
+        <script src = "src/inventoryPage.js" ></script>
+    </div>
+
+
+</body>
+</html>
