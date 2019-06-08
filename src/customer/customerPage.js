@@ -40,9 +40,26 @@ function initEventListeners(){
     }) ;
 
     $('#customerAddActionBtn').on('click', () => {
-        console.log();
+        console.log('customerAddActionBtn');
+        addCustomer();
+
 
     }) ;
+
+}
+
+function addCustomer() {
+
+    console.log($('customerAddFirstTxt').text());
+
+    customerStore.addCustomer(
+        $('customerAddFirstTxt').text(),
+        $('customerAddLastTxt').text(),
+        $('customerAddPhTxt').text(),
+        $('customerAddEmailTxt').text(),
+    );
+
+    // TODO: If error msg logic
 
 }
 

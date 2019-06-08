@@ -14,6 +14,13 @@ class Store {
         this.path = path.join(userDataPath, opts.configName + '.json');
 
         this.data = parseDataFile(this.path, opts.defaults);
+
+
+
+        // WILL DELETE ALL YOUR DATA
+        // delete this.data;
+        // fs.writeFileSync(this.path, JSON.stringify(this.data));
+
     }
 
     test(){
@@ -26,6 +33,7 @@ class Store {
     }
 
     set(key, val) {
+        console.log(JSON.stringify(this.data));
         this.data[key] = val;
 
 

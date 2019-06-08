@@ -4,17 +4,17 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo npm install\"Error: no test specified\" && exit 1",
     "start": "electron-forge start"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "electron": "^5.0.0",
-    "electron-forge": "^5.2.4"
-  },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "electron": "^5.0.0"
   }
 }
+
