@@ -1,7 +1,7 @@
 'use strict';
 
 
-const Store = require('./store');
+const Store = require('../store');
 
 class CustomerStore {
 
@@ -17,7 +17,7 @@ class CustomerStore {
 
     addCustomer() {
         console.log('trying addcustomer');
-        this.store.test();
+        this.store.set('test', 'abc');
     }
 
     searchCustomer() {

@@ -1,6 +1,6 @@
 'use strict';
 
-const Store = require('./store');
+const Store = require('../store');
 
 
 console.log('inventoryStore');

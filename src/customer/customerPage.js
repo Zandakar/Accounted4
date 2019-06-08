@@ -1,13 +1,11 @@
 'use strict';
 
 
-
-
 const CustomerStore = require('./customerStore');
+const customerStore = new CustomerStore();
 
 class CustomerPage  {
     constructor() {
-        this.customerStore = new CustomerStore();
 
         onInit();
     }
@@ -23,22 +21,28 @@ function onInit(){
 }
 
 function initEventListeners(){
+    // Back to index
     $('#customerBackBtn').on('click', () => {
         $('#customerContainer').hide();
         $('#landingContainer').show();
     }) ;
 
+    // Open search module
     $('#customerSearchBtn').on('click', () => {
-        $('#customerActionAddContainer').hide();
-        $('#customerActionSearchContainer').show();
+        $('#customerAddContainer').hide();
+        $('#customerSearchContainer').show();
     }) ;
 
+    // Open add customer module
     $('#customerAddbutton').on('click', () => {
-        $('#customerActionSearchContainer').hide();
-        $('#customerActionAddContainer').show();
+        $('#customerSearchContainer').hide();
+        $('#customerAddContainer').show();
     }) ;
 
+    $('#customerAddActionBtn').on('click', () => {
+        console.log();
 
+    }) ;
 
 }
 

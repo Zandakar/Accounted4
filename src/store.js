@@ -7,8 +7,7 @@ const fs = require('fs');
 class Store {
     constructor(opts) {
 
-        console.log('called constructor');
-        console.log(opts);
+        console.log('called Store constructor');
 
         const userDataPath = (electron.app || electron.remote.app).getPath('userData');
 
