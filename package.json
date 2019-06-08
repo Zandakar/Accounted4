@@ -1,11 +1,11 @@
 {
-  "name": "accountedfor",
+  "name": "Accounted4",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron-forge start"
   },
   "author": "",
   "license": "ISC",

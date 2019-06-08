@@ -1,4 +1,5 @@
-const errorHandler = require('./errorHandler');
+'use strict';
+
 const electron = require('electron');
 const path = require('path');
 const fs = require('fs');
@@ -14,6 +15,11 @@ class Store {
         this.path = path.join(userDataPath, opts.configName + '.json');
 
         this.data = parseDataFile(this.path, opts.defaults);
+    }
+
+    test(){
+        console.log('this is a test');
+
     }
 
     get(key) {

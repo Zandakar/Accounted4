@@ -1,22 +1,41 @@
+'use strict';
 
 
 const Store = require('./store');
 
-const store = new Store({
-    "configName": "customerStore",
-    "defaults": '{"name":"test"}'
-});
+class CustomerStore {
 
-function addCustomer() {
+    constructor(){
+
+        this.store = new Store({
+            "configName": "customerStore",
+            "defaults": '{"name":"test"}'
+        });
+
+        onInit();
+    }
+
+    addCustomer() {
+        console.log('trying addcustomer');
+        this.store.test();
+    }
+
+    searchCustomer() {
+
+    }
+
+    deletecustomer() {
+
+    }
+
+
 
 }
 
-function searchCustomer() {
+function onInit(){
 
 }
 
-function deletecustomer() {
 
 
-}
-
+module.exports = CustomerStore;
