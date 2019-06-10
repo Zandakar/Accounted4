@@ -15,12 +15,6 @@ class CustomerStore {
     }
 
     addCustomer(first, last, phNumber, email) {
-        console.log('trying addcustomer');
-
-        // let response = {
-        //     "isValid": true,
-        //     "errMsg": null
-        // };
 
         let newCustomer = {
             "firstName": first,
@@ -29,10 +23,15 @@ class CustomerStore {
             "email": email
         };
 
+            try {
+                validateNewCustomer(newCustomer);
+                store.set(newCustomer.phNumber, newCustomer);
+                return true;
+            } catch (err) {
+                // Pass error up the chain
+                throw err;
+            }
 
-            store.set('customer', newCustomer);
-
-            return true;
     }
 
     searchCustomer() {
@@ -51,28 +50,29 @@ function onInit(){
 
 }
 
-function validateNewCustomer(first, last, phNumber, addr){
+function validateNewCustomer(newUserObj){
 
-    // let isValid = true;
-    // let errMsg = null;
-    //
-    // if (!first) {
-    //     isValid = false;
-    // }
-    //
-    // if (!last) {
-    //     isValid = false;
-    // }
-    //
-    // if (!phNumber) {
-    //     isValid = false;
-    // }
-    //
-    // if (!addr) {
-    //     isValid = false;
-    // }
+    console.log(newUserObj.first);
 
-    return true;
+    if (!newUserObj.firstName) {
+        throw  'No first name';
+    }
+
+    if (!newUserObj.lastName) {
+        throw  'No last name';
+    }
+
+    if (!newUserObj.phNumber) {
+        throw  'No Phone number';
+
+        // let phRegex = /\d*;
+
+
+    }
+
+    if (!newUserObj.email) {
+        throw  'No email address';
+    }
 }
 
 

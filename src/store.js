@@ -33,12 +33,13 @@ class Store {
     }
 
     set(key, val) {
-        console.log(JSON.stringify(this.data));
+
         this.data[key] = val;
 
 
         // TODO: we might lose that data. Note that in a real app, we would try/catch this.
         fs.writeFileSync(this.path, JSON.stringify(this.data));
+        console.log(JSON.stringify(this.data));
     }
 }
 
