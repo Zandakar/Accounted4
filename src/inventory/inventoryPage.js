@@ -5,15 +5,10 @@
 
 console.log('loading inventory page');
 
-class InventoryPage {
-    constructor() {
-        console.log('inventoryPage constructor');
-        onInit();
-    }
+initEventListeners();
 
-}
 
-function onInit(){
+function initEventListeners(){
 
     $('#inventoryBackBtn').on('click', () => {
         $('#inventoryContainer').hide();
@@ -21,5 +16,3 @@ function onInit(){
     }) ;
 }
 
-
-module.exports = InventoryPage;

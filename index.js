@@ -7,9 +7,6 @@ let $ = require('jquery');  // re-assigns $ to jquery globally
 let customerPage = require('./src/customer/customerPage');
 let inventoryPage = require('./src/inventory/inventoryPage');
 
-// Instanciate other classes
-new customerPage();
-new inventoryPage();
 
 // -------------------- event listeners for index --------------------
 

@@ -4,21 +4,10 @@
 const CustomerStore = require('./customerStore');
 const customerStore = new CustomerStore();
 
-class CustomerPage  {
-    constructor() {
-
-        onInit();
-    }
-
-
-}
-
+initEventListeners();
 
 // ------------------------------ Private scope ------------------------------
 
-function onInit(){
-    initEventListeners();
-}
 
 function initEventListeners(){
     // Back to index
@@ -63,4 +52,3 @@ function addCustomer() {
 
 }
 
-module.exports = CustomerPage;
