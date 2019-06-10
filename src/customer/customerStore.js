@@ -65,7 +65,11 @@ function validateNewCustomer(newUserObj){
     if (!newUserObj.phNumber) {
         throw  'No Phone number';
 
-        // let phRegex = /\d*;
+        let phRegex = /[0-9]*/g;
+
+        // todo:  use .match? need to do more research
+
+        phRegex.exec(newUserObj.phNumber);
 
 
     }
