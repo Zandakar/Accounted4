@@ -57,7 +57,7 @@ function addCustomer() {
     } catch (err) {
         displayErrorMessage(err);
     }
-
+}
 
 function displaySuccessfulAddTxt(firstname, lastname){
     const infoText = $('#customerAddInfoText');
@@ -77,7 +77,5 @@ function displayErrorMessage(err){
 }
 
 
-    // TODO: If error msg logic
 
-}
 
