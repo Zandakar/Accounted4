@@ -48,16 +48,22 @@ function addCustomer() {
             $('#customerAddEmailTxt').val(),
         );
 
-        displaySuccessfulAddTxt();
+        displaySuccessfulAddTxt( $('#customerAddFirstTxt').val(), $('#customerAddLastTxt').val());
+        $('#customerAddFirstTxt').val('');
+        $('#customerAddLastTxt').val('');
+        $('#customerAddPhTxt').val('');
+        $('#customerAddEmailTxt').val('');
+
     } catch (err) {
         displayErrorMessage(err);
     }
 
 
-function displaySuccessfulAddTxt(){
+function displaySuccessfulAddTxt(firstname, lastname){
     const infoText = $('#customerAddInfoText');
 
-    infoText.text("Success!");
+    infoText.text("Success! " + firstname + " " + lastname + " was added!");
+    infoText.css("color","green");
     infoText.show();
 }
 
@@ -65,6 +71,8 @@ function displayErrorMessage(err){
     const infoText = $('#customerAddInfoText');
 
     infoText.text("Error! " + err);
+    infoText.css("color","red");
+
     infoText.show();
 }
 
