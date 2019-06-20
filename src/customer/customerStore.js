@@ -41,6 +41,50 @@ class CustomerStore {
         const Customer = store.get(phNumber);
     }
 
+    findCustomers(inputType, value) {
+
+        console.log(inputType);
+        console.log(value);
+
+        let data = store.getAllData();
+        let searchtype = "";
+
+        switch (inputType) {
+            case "First name":
+                searchtype = "firstName";
+                break;
+
+            case  "Last name" :
+                searchtype = "lastName";
+                break;
+
+            case "Phone number":
+                searchtype = "phNumber";
+                break;
+
+            case "Email":
+                searchtype = "email";
+                break;
+        }
+
+
+        let foundCustomers = [];
+        let regex =  value.contains;
+
+        // iterates  through object without including prototypes
+        for (let property in data) {
+            if (data.hasOwnProperty(property)) {
+                console.log(data[property]);
+                if (data[property][searchtype].toString().includes(value)) {
+                    console.log('found!');
+                    foundCustomers.push(data[property])
+                }
+            }
+        }
+
+        return foundCustomers;
+    }
+
 
 
     deletecustomer() {

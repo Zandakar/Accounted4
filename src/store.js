@@ -23,11 +23,6 @@ class Store {
 
     }
 
-    test(){
-        console.log('this is a test');
-
-    }
-
     get(key) {
         return this.data[key];
     }
@@ -41,6 +36,11 @@ class Store {
         } catch(e) {
             throw 'Something went wrong trying to save the data'
         }
+    }
+
+    getAllData() {
+
+        return this.data
     }
 
 
