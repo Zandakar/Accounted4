@@ -1,8 +1,10 @@
 'use strict';
 
 const electron = require('electron');
-const path = require('path');
+// const path = require('path');
 const fs = require('fs');
+
+//C:\Users\User\AppData\Roaming\Accounted4\appData\customerData
 
 class Store {
     constructor(opts) {
@@ -10,10 +12,14 @@ class Store {
         console.log('called Store constructor');
 
         const userDataPath = (electron.app || electron.remote.app).getPath('userData');
+        this.path = userDataPath + '\\appData' + '\\'  + opts.dataDirName;
 
-        this.path = path.join(userDataPath, opts.configName + '.json');
+        console.log('path:');
+        console.log(this.path);
 
-        this.data = parseDataFile(this.path, opts.defaults);
+        onLoad(this.path);
+        this.set('test', '{"key":"value"}');
+
 
 
 
@@ -23,18 +29,32 @@ class Store {
 
     }
 
+
+    // Looks for json file in data dir, parses and returns. returns undefined if not found.
     get(key) {
-        return this.data[key];
+        console.log('get');
+
+        let data;
+
+        try {
+            data = fs.readFileSync(this.path + '\\' + key + '.json');
+        } catch (e) {
+            throw e;
+        }
+
+        return data;
+
     }
 
     set(key, val) {
+        console.log('set');
 
+        // Replace value in data store with new data
         try {
-            this.data[key] = val;
-            fs.writeFileSync(this.path, JSON.stringify(this.data));
-            console.log(JSON.stringify(this.data));
+            fs.writeFileSync(this.path + '\\' + key + '.json', JSON.stringify(val));
         } catch(e) {
-            throw 'Something went wrong trying to save the data'
+            console.error(e);
+            throw 'Something went wrong trying to save the data';
         }
     }
 
@@ -46,16 +66,21 @@ class Store {
 
 }
 
-function parseDataFile(filePath, defaults) {
+function onLoad(dirPath) {
 
-    // try-catch for initial creation of file as it won't exist
-    try {
-        return JSON.parse(fs.readFileSync(filePath));
-    } catch(error) {
-        // if there was some kind of error, return the passed in defaults instead.
-        return defaults;
-    }
+    // Create base + store directories
+    fs.mkdir(dirPath, {recursive: true} ,  err => {
+
+        // Chuck below could be useful
+        // if (err && err.code != 'EEXIST') {
+        //
+        // }
+
+    });
+
+
 }
+
 
 
 // expose the class

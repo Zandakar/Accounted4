@@ -4,6 +4,7 @@
 const Store = require('../store.js');
 const store = new Store({
     "configName": "customerStore",
+    "dataDirName": "customerData",
     "defaults": {}
 });
 
@@ -46,6 +47,7 @@ class CustomerStore {
         console.log(inputType);
         console.log(value);
 
+        // TODO: Replace getAllData with single data object
         let data = store.getAllData();
         let searchtype = "";
 
@@ -101,9 +103,21 @@ function onInit(){
 
 // returns bool for whether customer exists
 function doesCustomerExist(phNumber) {
-    // Ph number used as key in data
-    console.log('doesCustomerExist:' + !!(store.get(phNumber)));
-    return !!(store.get(phNumber));
+
+    try {
+        // Ph number used as key in data
+        return !!(store.get(phNumber));
+    } catch (e) {
+        if (e.code === 'ENOENT')
+        {
+            // Customer doesn't exist which is expected in this case
+            return false;
+        } else {
+            // Actual unexpected error.
+            console.error(e);
+            throw 'Something went wrong adding the customer'
+        }
+    };
 }
 
 function validateNewCustomer(newUserObj){
